@@ -21,6 +21,10 @@ spec:
           env:
             - name: POSTGRES_PASSWORD
               value: "admin"
+          lifecycle:
+            postStart:
+              exec:
+                command: ["/bin/sh", "-c", "ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /usr/share/zoneinfo/Asia/Saigon"]
 ---
 apiVersion: v1
 kind: Service
